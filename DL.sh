@@ -5,4 +5,5 @@ channel_name=$(yt-dlp --print "%(channel)s" $1)
 
 mkdir -p "$channel_name"
 
-echo $1 > "$channel_name/link"
+[ -f "$channel_name/link" ] || touch "$channel_name/link"
+echo "$1" >> "$channel_name/link"
